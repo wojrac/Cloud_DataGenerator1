@@ -35,11 +35,16 @@ namespace CloudBackend1
             {
                 app.UseDeveloperExceptionPage();
             }
+            //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowAnyCredentials());
 
+              app.UseCors(x => x   //dodac do drugiego backu
+            .AllowAnyOrigin()      //
+            .AllowAnyMethod()      //
+            .AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+       
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
